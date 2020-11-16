@@ -7,7 +7,7 @@ Initial notes: The pipeline has seven scripts. Some of these can be run interact
 ## Prepare the pipeline:
 
 1) Install the necessary R- packages
-  - The packages needed are listed in the scrip R_packages.needed.R
+  - The packages needed are listed here: [R_packages.needed.R](01_Zazzy/install_Zazzy_pipeline/R_packages.needed.R)
   - I think you need to run this script from within R, since you will be asked about using your own path for packages.
 
 2) Install the necessary programs
