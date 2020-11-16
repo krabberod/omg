@@ -1,0 +1,12 @@
+# Before installing the pipeline you need to load R and install one package manually
+# this is necessary to set a personal library to store your packages
+# do this in the terminal manualy
+
+module purge
+module load R/3.5.1-intel-2018b
+R
+
+# once in R install a package normally
+# e.g.
+install.packages("openxlsx", dependencies=TRUE)
+library(openxlsx)
