@@ -1,10 +1,10 @@
-# Notes on the Zazzy Pipline by Luis Murgado.
+# Notes on the Zazzy Pipline by Luis Morgado.
 (Tested by AKK mid November 2020)
 
-Initial notes: The pipeline has seven scripts. Some of these can be run interactively on the command line at saga, a few takes more time and should be sent to the slurm queue. The
+Initial notes: The pipeline has seven scripts. Some of these can be run interactively on the command line at saga, a few takes more time and should be sent to the slurm queue.
 
 
-##Prepare the pipeline:
+## Prepare the pipeline:
 
 1) Install the necessary R- packages
   - The packages needed are listed in the scrip R_packages.needed.R
@@ -16,15 +16,23 @@ module purge
 module load Anaconda3/2019.03
 conda create -n zazzy_metabarcoding_pipeline -c bioconda -c conda-forge cutadapt=2.7 itsx ucsc-fasplit vsearch=2.14.0 --yes
 ```
-The installation packages is not huge, about 350 mb. I recommend that everybody makes their own installation since you then can change versions (if needed) indivdually).
+The conda installation is not huge, about 350 mb. I think it is easiest that everybody makes their own installation since you then can change versions (if needed) individually).   
+BUT: DO NOT COPY DATABASE FOLDER!
+
+
+R dependencies might differ between versions. I had to change the *dada2* installation to version to make it work with R/3.5.1-intel-2018b (which is loaded by default in the scripts by Luis):
+```
+BiocManager::install("dada2", version = "3.8")
+```
+
 
 ## How to Run the pipeline:
-The scipts for the pipleline are in two folders here:
+The srcipts for the pipleline are in two sub folders of:
     - /cluster/projects/nn9338k/Luis_metabarding_pipeline/scripts
     - All scripts can be found in *interactive_scripts*.
     - The most time consuming are also prepared as slurm scripts, to be sent to the queueu.
     - /cluster/projects/nn9338k/Luis_metabarding_pipeline/scripts/slurm_scripts.
-        - in particular: script 1, 2 and 7.
+        - in particular script 1, 2 and 7.
 
 - See the instructions made by Luis for setting up the
 
@@ -42,5 +50,31 @@ module purge
 module load Anaconda3/2019.03
 conda activate zazzy_metabarcoding_pipeline
 ```
+Copy the scripts you want to run to fastq-files along with the _batch_files.txt_ (which needs to be set up correctly according to your project).
 
-The script(s) you want to run is copied to the same folder as the fastq-files along with the _batch_files.txt_ (which needs to be set up correctly according to your files).
+NB: The numbering of the scripts are not in agreement. The slurm-script called "slurm_script_2_run_DADA..." corresponds to the interactive "script_3_run_DADA...".
+
+### script 1
+Recommended to send to the slurm queue. The command is simple enough:
+```
+sbatch slurm_script_1_dem.sh
+```
+You should now see:
+```
+Submitted batch job <jobid>
+```
+You can check the status of the job:
+```
+scontrol show <jobid>
+```
+Alternatively, you can check all your current running jobs:
+```
+squeue -u <your_username>
+```
+_Runtime on test data: 34 mins._
+
+### script 2
+### script 3 run dada2 (called scipt 2 in the slurm folder)
+Both the _script_3_run_DADA2_v1.12.sh_ and _slurm_script_2_runDADA2_v1.12.sh_ are master scripts that starts R and runs  *script_3_dependency_R_code.R* .  
+
+**I'm waiting on the installation of the dada2 package to finish to continue testing...**
