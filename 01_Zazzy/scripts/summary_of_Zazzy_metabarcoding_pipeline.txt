@@ -1,0 +1,74 @@
+##########################################################
+##########################################################
+################ RUNNING THE ANALYSES ####################
+##########################################################
+
+
+# summary
+# to star you have to install the pipeline software - go to:
+/cluster/projects/nn9338k/Luis_metabarding_pipeline/install_Zazzy_pipeline
+
+# Before installing the pipeline you need to load R and	install	one package manually
+# this is necessary to set a personal library to store your packages
+# do this in the terminal manualy
+module purge
+module load R/3.5.1-intel-2018b
+R
+
+# once in R install a package normally
+# e.g.
+install.packages("openxlsx", dependencies=TRUE)
+library(openxlsx)
+
+# then you should be ready to install the needed sfotware.
+# do:
+bash install_Zazzy_pipeline.sh
+
+
+# Before using the pipeline you need to load the needed software
+conda activate zazzy_metbarcoding_pipeline
+
+# the actual scripts summary:
+script 1 - demultiplex your samples
+script 2 - remove samples with very low number of reads
+script 3 - run dada2 for sequence error correction and merging the R1 and R2
+script 4 - ITSx in parallel mode (in case you need to use it)
+script 5 - clustering
+script 6 - LULU post-clustering OTU curation
+script 7 - Blast
+
+
+###########################################
+# run the cutadpt script to demultiplex the sample per barcode and primer
+script_1_demultiplex_cutadapt_2_7.sh
+#	to run the script you need: 
+#	(1) a batch_file that contains the names of the files: for R1, R2, fasta file containing R1 sample name, FASTA file containing R2 sample name
+#	(2) FASTA file containing R1 sample name
+#	(3) FASTA file containing R2 sample name
+
+#### remove files with very low reads #### this step avoids problems with DADA2
+script_2_remove_demult_files_with_very_low_read_number.sh
+
+######## run DADA2 script to denoise and merge amplicons based on DADA2 version 1.12, this also exports amplicons on a sample based, among other outputs
+####################### you should adjust this for you own dataset and taste:  1) PRIMERs in case you are looking for them, 2)filterAndTrim parameters, 3) working with ITS? suggested band_size=32 see initial part of the script (remove #)
+script_3_run_DADA2_v1.12.sh
+script_3_dependency_R_code.R ### you should adjust settings in this script
+
+
+#################################################################################
+# in case you need to extract the ITS region of interest # default is set for fungi
+script_4_parallel_itsx_fungi.sh
+
+
+###### Cluster you reads into OTUs
+script_5_VSEARCH_cluster.sh
+
+
+## LULU post-clustering curation of OTU delimitation
+script_6_LULU.sh
+script_6_R_code_LULU.R # in case you want to change the default settings in LULU algorithm
+
+
+###### Blast to reference database
+script_7_Blast_and_match.sh
+script_7_matching_blast_with_OTU_table.R ## this is to merge the blast results with the curated results from LULU

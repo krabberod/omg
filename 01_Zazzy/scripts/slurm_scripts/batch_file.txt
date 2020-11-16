@@ -1,0 +1,2 @@
+SMEul-P1_S1_L001_R1_001.fastq	SMEul-P1_S1_L001_R2_001.fastq	SMEuk_P1_FWD.fasta	SMEuk_P1_REV.fasta
+SMEul-P2_S2_L001_R1_001.fastq	SMEul-P2_S2_L001_R2_001.fastq	SMEuk_P2_FWD.fasta	SMEuk_P2_REV.fasta
