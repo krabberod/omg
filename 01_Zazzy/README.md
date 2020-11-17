@@ -80,9 +80,11 @@ Both the _script_3_run_DADA2_v1.12.sh_ and _slurm_script_2_runDADA2_v1.12.sh_ ar
 *NB* check the version of R in script_3_run_DADA2_v1.12.sh or lurm_script_2_runDADA2_v1.12.sh. The version which is loaded deafult is 3.5.2-inte-2018b. Change this to match the version you are using of R, the version for which dada2 is installed.  
 ```
 module purge
-module load R/3.5.1-intel-2018b
+module load R/3.5.1-intel-2018b # <- Change this!
 R < script_3_dependency_R_code.R --no-save
 ```
+
+
 
 
 
