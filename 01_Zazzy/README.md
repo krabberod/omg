@@ -77,7 +77,7 @@ _Runtime on test data: 34 mins._
 ### script 3 run dada2 (called scipt 2 in the slurm folder)
 Both the _script_3_run_DADA2_v1.12.sh_ and _slurm_script_2_runDADA2_v1.12.sh_ are master scripts that starts R and runs  *script_3_dependency_R_code.R* .  
 
-*NB* check the version of R in script_3_dependency_R_code. The version which is loaded deafult is 3.5.2-inte-2018b. Change this to match the version you are using of R, the version for which dada2 is installed.  
+*NB* check the version of R in script_3_run_DADA2_v1.12.sh or lurm_script_2_runDADA2_v1.12.sh. The version which is loaded deafult is 3.5.2-inte-2018b. Change this to match the version you are using of R, the version for which dada2 is installed.  
 ```
 module purge
 module load R/3.5.1-intel-2018b
