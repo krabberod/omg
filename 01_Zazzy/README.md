@@ -103,6 +103,7 @@ chmod +x script_4_parallel_itsx_fungi.sh
 Read more about permissions here: https://www.pluralsight.com/blog/it-ops/linux-file-permissions
 
 BUG: I got an error form this script.
+It wants to start Vsearch, does this make script 5 redundant? 
 
 
 ### Script 5
