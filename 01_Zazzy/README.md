@@ -44,7 +44,7 @@ srun --account=nn9338k --mem-per-cpu=10G --time=10:00:00 --cpus-per-task=8 --pty
 ```
 The interactive session will last as long as you specified queueing time. NB it will also be killed if you close the terminal window.
 
-## Loading the programs:
+### Loading the programs:
 ```
 module purge
 module load Anaconda3/2019.03
@@ -54,7 +54,7 @@ Copy the scripts you want to run to fastq-files along with the _batch_files.txt_
 
 NB: The numbering of the scripts are not in agreement. The slurm-script called "slurm_script_2_run_DADA..." corresponds to the interactive "script_3_run_DADA...".
 
-## Script 1
+### Script 1
 Recommended to send to the slurm queue. The command is simple enough:
 ```
 sbatch slurm_script_1_dem.sh
@@ -73,8 +73,8 @@ squeue -u <your_username>
 ```
 _Runtime on test data: 34 mins._
 
-## Script 2
-## Script 3
+### Script 2
+### Script 3
 run dada2 (called scipt 2 in the slurm folder)
 Both the _script_3_run_DADA2_v1.12.sh_ and _slurm_script_2_runDADA2_v1.12.sh_ are master scripts that starts R and runs  *script_3_dependency_R_code.R* .  
 
