@@ -54,7 +54,7 @@ Copy the scripts you want to run to fastq-files along with the _batch_files.txt_
 
 NB: The numbering of the scripts are not in agreement. The slurm-script called "slurm_script_2_run_DADA..." corresponds to the interactive "script_3_run_DADA...".
 
-### script 1
+## Script 1
 Recommended to send to the slurm queue. The command is simple enough:
 ```
 sbatch slurm_script_1_dem.sh
@@ -73,8 +73,9 @@ squeue -u <your_username>
 ```
 _Runtime on test data: 34 mins._
 
-### script 2
-### script 3 run dada2 (called scipt 2 in the slurm folder)
+## Script 2
+## Script 3
+run dada2 (called scipt 2 in the slurm folder)
 Both the _script_3_run_DADA2_v1.12.sh_ and _slurm_script_2_runDADA2_v1.12.sh_ are master scripts that starts R and runs  *script_3_dependency_R_code.R* .  
 
 *NB* check the version of R in script_3_run_DADA2_v1.12.sh or slurm_script_2_runDADA2_v1.12.sh. The version which is loaded deafult is 3.5.2-inte-2018b. Change this to match the version you are using of R, the version for which dada2 is installed.  
