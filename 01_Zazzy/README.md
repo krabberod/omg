@@ -42,7 +42,7 @@ If you want to run some of the interactive scripts you need to get ask for some 
 ```
 srun --account=nn9338k --mem-per-cpu=10G --time=10:00:00 --cpus-per-task=8 --pty bash -i
 ```
-The interactive session will last as long as you specified queueing time. NB it will also be killed if you close the terminal window
+The interactive session will last as long as you specified queueing time. NB it will also be killed if you close the terminal window.
 
 ## Loading the programs:
 ```
@@ -84,12 +84,28 @@ module load R/3.5.1-intel-2018b # <- Change this!
 R < script_3_dependency_R_code.R --no-save
 ```
 
+### Script 4
+- Copy script_4_parallel_itsx_fungi.sh to the folder with .fas files.
+- Alt. ask for interactive resources. This script is quite fast so you can ask for place in the development queue (for short jobs) for example:
+```
+srun --account=nn9525k --mem-per-cpu=10G --time=0:30:00 --qos=devel --cpus-per-task=4 --pty bash -i
+```
+- Load the conda enviromnet for the pipleline (if it's not already loaded).
+- Run the script (by adding ./ in front of the name of the script)
+```
+./script_4_parallel_itsx_fungi.sh
+```
+If you get Permission denied you need to change the permission of the file:
+```
+chmod +x script_4_parallel_itsx_fungi.sh
+```
+Read more about permissions here: https://www.pluralsight.com/blog/it-ops/linux-file-permissions
+
+BUG: I got an error form this script.
 
 
-
-
-
-
-
-
-**I'm waiting on the installation of the dada2 package to finish to continue testing...**
+### Script 5
+script_5_VSEARCH_cluster.sh
+### Script 6
+script_6_LULU.sh
+### Script 7
