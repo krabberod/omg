@@ -74,9 +74,11 @@ squeue -u <your_username>
 _Runtime on test data: 34 mins._
 
 ### Script 2
+Removes fastq files with a low number of sequences (if any).
+
 ### Script 3
-run dada2 (called scipt 2 in the slurm folder)
-Both the _script_3_run_DADA2_v1.12.sh_ and _slurm_script_2_runDADA2_v1.12.sh_ are master scripts that starts R and runs  *script_3_dependency_R_code.R* .  
+Now it's time to Run dada2.  
+Both the _script_3_run_DADA2_v1.12.sh_ and _slurm_script_2_runDADA2_v1.12.sh_ are master scripts that starts R from *script_3_dependency_R_code.R* .  
 
 *NB* check the version of R in script_3_run_DADA2_v1.12.sh or slurm_script_2_runDADA2_v1.12.sh. The version which is loaded deafult is 3.5.2-inte-2018b. Change this to match the version you are using of R, the version for which dada2 is installed.  
 ```
@@ -103,7 +105,7 @@ chmod +x script_4_parallel_itsx_fungi.sh
 Read more about permissions here: https://www.pluralsight.com/blog/it-ops/linux-file-permissions
 
 BUG: I got an error form this script.
-It wants to start Vsearch, does this make script 5 redundant? 
+It wants to start Vsearch, does this make script 5 redundant?
 
 
 ### Script 5
