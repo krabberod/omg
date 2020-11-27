@@ -1,0 +1,340 @@
+This is cutadapt 2.7 with Python 3.7.8
+Command line parameters: -g file:ES1A_map_FWD.fasta -G file:ES1A_map_REV.fasta -O 26 -e 0 --no-indels -m 100 -o {name}_SS_R1.fastq.gz -p {name}_SS_R2.fastq.gz ES1A_S2_L001_R1_001.fastq ES1A_S2_L001_R2_001.fastq
+Processing reads on 1 core in paired-end mode ...
+Finished in 588.39 s (180 us/read; 0.33 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:          3,262,836
+  Read 1 with adapter:                  80,720 (2.5%)
+  Read 2 with adapter:                  81,981 (2.5%)
+Pairs that were too short:                   9 (0.0%)
+Pairs written (passing filters):     6,525,654 (200.0%)
+
+Total basepairs processed: 1,964,227,272 bp
+  Read 1:   982,113,636 bp
+  Read 2:   982,113,636 bp
+Total written (filtered):  1,959,858,163 bp (99.8%)
+  Read 1:   979,889,232 bp
+  Read 2:   979,968,931 bp
+
+=== First read: Adapter S001 ===
+
+Sequence: NAACAACCCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 27; Trimmed: 27208 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	492	0.0	0	492
+27	26696	0.0	0	26696
+28	8	0.0	0	8
+51	1	0.0	0	1
+72	2	0.0	0	2
+79	1	0.0	0	1
+81	1	0.0	0	1
+97	1	0.0	0	1
+179	1	0.0	0	1
+266	1	0.0	0	1
+269	2	0.0	0	2
+270	1	0.0	0	1
+290	1	0.0	0	1
+
+
+=== First read: Adapter S002 ===
+
+Sequence: NNAACCGACCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 28; Trimmed: 21798 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	205	0.0	0	205
+27	377	0.0	0	377
+28	21205	0.0	0	21205
+29	6	0.0	0	6
+31	1	0.0	0	1
+49	1	0.0	0	1
+71	1	0.0	0	1
+74	1	0.0	0	1
+75	1	0.0	0	1
+
+
+=== First read: Adapter S003 ===
+
+Sequence: NNNCCGGAACCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 29; Trimmed: 11082 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	117	0.0	0	117
+27	150	0.0	0	150
+28	266	0.0	0	266
+29	10541	0.0	0	10541
+30	3	0.0	0	3
+31	1	0.0	0	1
+66	1	0.0	0	1
+69	1	0.0	0	1
+71	1	0.0	0	1
+76	1	0.0	0	1
+
+
+=== First read: Adapter S004 ===
+
+Sequence: NAGTGTTCCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 27; Trimmed: 20632 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	227	0.0	0	227
+27	20391	0.0	0	20391
+28	7	0.0	0	7
+34	1	0.0	0	1
+35	2	0.0	0	2
+41	1	0.0	0	1
+70	1	0.0	0	1
+72	2	0.0	0	2
+
+
+=== Second read: Adapter S001 ===
+
+Sequence: NNAACAACACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 26; Trimmed: 29163 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	29144	0.0	0	29144
+27	14	0.0	0	14
+45	1	0.0	0	1
+71	2	0.0	0	2
+72	1	0.0	0	1
+279	1	0.0	0	1
+
+
+=== Second read: Adapter S002 ===
+
+Sequence: NNNAACCGAACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 27; Trimmed: 21543 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	460	0.0	0	460
+27	21061	0.0	0	21061
+28	16	0.0	0	16
+70	2	0.0	0	2
+74	3	0.0	0	3
+266	1	0.0	0	1
+
+
+=== Second read: Adapter S003 ===
+
+Sequence: NCCGGAAACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 25; Trimmed: 10952 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	10947	0.0	0	10947
+26	2	0.0	0	2
+70	1	0.0	0	1
+267	1	0.0	0	1
+286	1	0.0	0	1
+
+
+=== Second read: Adapter S004 ===
+
+Sequence: NNAGTGTTACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 26; Trimmed: 20323 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	20314	0.0	0	20314
+27	8	0.0	0	8
+73	1	0.0	0	1
+This is cutadapt 2.7 with Python 3.7.8
+Command line parameters: -g file:ES1B_map_FWD.fasta -G file:ES1B_map_REV.fasta -O 26 -e 0 --no-indels -m 100 -o {name}_SS_R1.fastq.gz -p {name}_SS_R2.fastq.gz ES1B_S1_L001_R1_001.fastq ES1B_S1_L001_R2_001.fastq
+Processing reads on 1 core in paired-end mode ...
+Finished in 464.03 s (173 us/read; 0.35 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:          2,676,416
+  Read 1 with adapter:                  76,365 (2.9%)
+  Read 2 with adapter:                  73,238 (2.7%)
+Pairs that were too short:                   1 (0.0%)
+Pairs written (passing filters):     5,352,830 (200.0%)
+
+Total basepairs processed: 1,611,202,432 bp
+  Read 1:   805,601,216 bp
+  Read 2:   805,601,216 bp
+Total written (filtered):  1,607,141,337 bp (99.7%)
+  Read 1:   803,446,281 bp
+  Read 2:   803,695,056 bp
+
+=== First read: Adapter S049 ===
+
+Sequence: NNTTCGGACCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 28; Trimmed: 19015 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	191	0.0	0	191
+27	404	0.0	0	404
+28	18405	0.0	0	18405
+29	12	0.0	0	12
+70	1	0.0	0	1
+74	1	0.0	0	1
+75	1	0.0	0	1
+
+
+=== First read: Adapter S050 ===
+
+Sequence: NNNCGACGTCCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 29; Trimmed: 18060 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	125	0.0	0	125
+27	125	0.0	0	125
+28	309	0.0	0	309
+29	17487	0.0	0	17487
+30	9	0.0	0	9
+43	1	0.0	0	1
+48	1	0.0	0	1
+52	1	0.0	0	1
+75	1	0.0	0	1
+169	1	0.0	0	1
+
+
+=== First read: Adapter S051 ===
+
+Sequence: NCTCATGCCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 27; Trimmed: 19479 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	181	0.0	0	181
+27	19284	0.0	0	19284
+28	8	0.0	0	8
+39	1	0.0	0	1
+49	1	0.0	0	1
+69	1	0.0	0	1
+70	2	0.0	0	2
+71	1	0.0	0	1
+
+
+=== First read: Adapter S052 ===
+
+Sequence: NNNTGTATACCAGCASCYGCGGTAATTCC; Type: regular 5'; Length: 29; Trimmed: 19811 times.
+
+No. of allowed errors:
+0-26 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	95	0.0	0	95
+27	138	0.0	0	138
+28	333	0.0	0	333
+29	19232	0.0	0	19232
+30	7	0.0	0	7
+40	1	0.0	0	1
+71	1	0.0	0	1
+72	3	0.0	0	3
+74	1	0.0	0	1
+
+
+=== Second read: Adapter S049 ===
+
+Sequence: NNNTTCGGAACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 27; Trimmed: 18210 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	414	0.0	0	414
+27	17782	0.0	0	17782
+28	6	0.0	0	6
+29	1	0.0	0	1
+30	1	0.0	0	1
+49	1	0.0	0	1
+70	2	0.0	0	2
+72	2	0.0	0	2
+73	1	0.0	0	1
+
+
+=== Second read: Adapter S050 ===
+
+Sequence: NCGACGTACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 25; Trimmed: 17093 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	17079	0.0	0	17079
+26	8	0.0	0	8
+27	2	0.0	0	2
+68	1	0.0	0	1
+72	3	0.0	0	3
+
+
+=== Second read: Adapter S051 ===
+
+Sequence: NNNCTCATGACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 27; Trimmed: 19060 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	274	0.0	0	274
+27	18765	0.0	0	18765
+28	10	0.0	0	10
+40	1	0.0	0	1
+44	1	0.0	0	1
+49	1	0.0	0	1
+51	1	0.0	0	1
+53	1	0.0	0	1
+65	1	0.0	0	1
+66	1	0.0	0	1
+68	1	0.0	0	1
+70	2	0.0	0	2
+74	1	0.0	0	1
+
+
+=== Second read: Adapter S052 ===
+
+Sequence: NTGTATAACTTTCGTTCTTGATYRA; Type: regular 5'; Length: 25; Trimmed: 18875 times.
+
+No. of allowed errors:
+0-24 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+25	18863	0.0	0	18863
+26	3	0.0	0	3
+27	4	0.0	0	4
+67	1	0.0	0	1
+68	2	0.0	0	2
+154	1	0.0	0	1
+292	1	0.0	0	1

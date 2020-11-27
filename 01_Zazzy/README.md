@@ -104,12 +104,29 @@ chmod +x script_4_parallel_itsx_fungi.sh
 ```
 Read more about permissions here: https://www.pluralsight.com/blog/it-ops/linux-file-permissions
 
-BUG: I got an error form this script.
-It wants to start Vsearch, does this make script 5 redundant?
-
 
 ### Script 5
-script_5_VSEARCH_cluster.sh
+- script_5_VSEARCH_cluster.sh  
+Generates a otutable in the DADA2_extracted_samples_no_chim folder.
+
+
 ### Script 6
 script_6_LULU.sh
+
+Change this to match the version you are using of R
+```
+module purge
+module load BLAST+/2.8.1-foss-2018b
+OTU_centroids=$(find -type f -name '*.centroids')
+sed 's/;.*$//' "${OTU_centroids}" > OTU_centroids2
+makeblastdb -in OTU_centroids2 -parse_seqids -dbtype nucl
+blastn -db OTU_centroids2 -outfmt '6 qseqid sseqid pident' -out match_list.txt -qcov_hsp_perc 80 -perc_identity 84 -query OTU_centroids2
+
+# run the LULU curation
+module purge
+module load R/3.5.1-intel-2018b ### Change this!
+R < LULU_curation_R_code.R --no-save ### Update the name of the R.script
+```
+
 ### Script 7
+Ella used version BLAST+/2.10.1-iimpi-2020a for setting up her blastdatabase

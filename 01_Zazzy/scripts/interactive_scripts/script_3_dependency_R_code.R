@@ -10,14 +10,14 @@ library(ShortRead)
 library(Biostrings)
 library(openxlsx)
 #setDadaOpt(BAND_SIZE=32) # for ITS
-path <- getwd()  
+path <- getwd()
 list.files(path)
 ########################## SENSUS - SS analyses #########
 ##########################
 path.SS <- file.path(path, "DADA2_SS")
 list.files(path.SS)
-fnFs <- sort(list.files(path.SS, pattern = "_R1.fastq", full.names = TRUE))    
-fnRs <- sort(list.files(path.SS, pattern = "_R2.fastq", full.names = TRUE))	
+fnFs <- sort(list.files(path.SS, pattern = "_R1.fastq", full.names = TRUE))
+fnRs <- sort(list.files(path.SS, pattern = "_R2.fastq", full.names = TRUE))
 #### set the samples names #######
 sample.names <- sapply(strsplit(basename(fnFs), "_"), `[`, 1)
 sample.names
@@ -30,7 +30,7 @@ REV <- "AAATTTGGGCCC"    #INSERT_REV_PRIMER
 allOrients <- function(primer) { # Create all orientations of the input sequence
   require(Biostrings)
   dna <- DNAString(primer)  # The Biostrings works w/ DNAString objects rather than character vectors
-  orients <- c(Forward = dna, Complement = complement(dna), Reverse = reverse(dna), 
+  orients <- c(Forward = dna, Complement = complement(dna), Reverse = reverse(dna),
                RevComp = reverseComplement(dna))
   return(sapply(orients, toString))  # Convert back to character vector
 }
@@ -47,9 +47,9 @@ primerHits <- function(primer, fn) {
 }
 
 ### in the demultiplexed files SS ####
-Primers.SS<-rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs[[1]]), 
-                  FWD.ReverseReads = sapply(FWD.orients, primerHits, fn = fnRs[[1]]), 
-                  REV.ForwardReads = sapply(REV.orients, primerHits, fn = fnFs[[1]]), 
+Primers.SS<-rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs[[1]]),
+                  FWD.ReverseReads = sapply(FWD.orients, primerHits, fn = fnRs[[1]]),
+                  REV.ForwardReads = sapply(REV.orients, primerHits, fn = fnFs[[1]]),
                   REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs[[1]]))
 Primers.SS
 tbname_Primers.SS <- file.path(path,"Primers.in.SS.table")
@@ -66,8 +66,8 @@ filtFs <- file.path(path.SS, "filtered", paste0(sample.names, "_F_filt.fastq.gz"
 filtRs <- file.path(path.SS, "filtered", paste0(sample.names, "_R_filt.fastq.gz"))
 
 out.SS <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(200, 200),
-                        maxN=0, maxEE=c(1,1), truncQ=2, trimLeft =c(0,0), 
-                        rm.phix=TRUE, compress=TRUE, matchIDs = T, 
+                        maxN=0, maxEE=c(1,1), truncQ=2, trimLeft =c(0,0),
+                        rm.phix=TRUE, compress=TRUE, matchIDs = T,
                         multithread=T)
 
 ##### the analyses #######
@@ -113,7 +113,7 @@ sample.names
 allOrients <- function(primer) { # Create all orientations of the input sequence
   require(Biostrings)
   dna <- DNAString(primer)  # The Biostrings works w/ DNAString objects rather than character vectors
-  orients <- c(Forward = dna, Complement = complement(dna), Reverse = reverse(dna), 
+  orients <- c(Forward = dna, Complement = complement(dna), Reverse = reverse(dna),
                RevComp = reverseComplement(dna))
   return(sapply(orients, toString))  # Convert back to character vector
 }
@@ -130,9 +130,9 @@ primerHits <- function(primer, fn) {
 }
 
 ### in the demultiplexed files SS ####
-Primers.AS<-rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs[[1]]), 
-                  FWD.ReverseReads = sapply(FWD.orients, primerHits, fn = fnRs[[1]]), 
-                  REV.ForwardReads = sapply(REV.orients, primerHits, fn = fnFs[[1]]), 
+Primers.AS<-rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs[[1]]),
+                  FWD.ReverseReads = sapply(FWD.orients, primerHits, fn = fnRs[[1]]),
+                  REV.ForwardReads = sapply(REV.orients, primerHits, fn = fnFs[[1]]),
                   REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs[[1]]))
 Primers.AS
 tbname_Primers.AS <- file.path(path,"Primers.in.AS.table")
@@ -142,8 +142,8 @@ filtFs <- file.path(path.AS, "filtered", paste0(sample.names, "_F_filt.fastq.gz"
 filtRs <- file.path(path.AS, "filtered", paste0(sample.names, "_R_filt.fastq.gz"))
 
 out.AS <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(200, 200),
-                        maxN=0, maxEE=c(1,1), truncQ=2, trimLeft =c(0,0), 
-                        rm.phix=TRUE, compress=TRUE, matchIDs = T, 
+                        maxN=0, maxEE=c(1,1), truncQ=2, trimLeft =c(0,0),
+                        rm.phix=TRUE, compress=TRUE, matchIDs = T,
                         multithread=T)
 
 ##### the analyses #######
@@ -177,7 +177,7 @@ write.xlsx(track.AS, "track_reads_AS.xlsx")
 write.xlsx(track.SS, "track_reads_SS.xlsx")
 
 
-#Define a function for combining two or more tables, collapsing samples with similar names:  
+#Define a function for combining two or more tables, collapsing samples with similar names:
 sumSequenceTables <- function(table1, table2, ..., orderBy = "abundance") {
   # Combine passed tables into a list
   tables <- list(table1, table2)
@@ -234,26 +234,26 @@ ggplot(data=df.without.chim, aes(x=length, y=count)) + geom_col()
 ggsave("ASV_no_chime_length.pdf", width = 18, height = 14, units = c("in"))
 
 #### get all reads counted
-track.SS<-as.data.frame(track.SS) %>% 
+track.SS<-as.data.frame(track.SS) %>%
   rownames_to_column("sample.names")
 track.SS[is.na(track.SS)]<-0
-track.AS<-as.data.frame(track.AS) %>% 
+track.AS<-as.data.frame(track.AS) %>%
   rownames_to_column("sample.names")
 track.AS[is.na(track.AS)]<-0
 
 track_merged_data<-cbind(rowSums(Both_sumtable_with_chim), rowSums(sign(Both_sumtable_with_chim)), rowSums(Both_nochim_sumtable), rowSums(sign(Both_nochim_sumtable)))
 rownames(track_merged_data) <- sample.names
 colnames(track_merged_data) <- c("Reads_w_chim","ASVs_w_chim" ,"Reads_nonchim", "ASVs_nonchim")
-track_merged_data<-as.data.frame(track_merged_data) %>% 
+track_merged_data<-as.data.frame(track_merged_data) %>%
   rownames_to_column("sample.names")
 track_merged_data[is.na(track_merged_data)]<-0
 
-track_both<-track.SS %>% 
+track_both<-track.SS %>%
   full_join(track.AS) %>%
-  full_join(track_merged_data) %>% 
-  replace(., is.na(.), 0) %>% 
-  mutate(input=(input.SS+input.AS), denoisedF=(denoisedF.SS+denoisedF.AS), 
-         denoisedR=(denoisedR.SS+denoisedR.AS)) %>% 
+  full_join(track_merged_data) %>%
+  replace(., is.na(.), 0) %>%
+  mutate(input=(input.SS+input.AS), denoisedF=(denoisedF.SS+denoisedF.AS),
+         denoisedR=(denoisedR.SS+denoisedR.AS)) %>%
   select(sample.names,input, denoisedF, denoisedR, Reads_w_chim, Reads_nonchim, ASVs_w_chim, ASVs_nonchim)
 
 write.xlsx(track_both,"track_reads_both.xlsx")
