@@ -73,6 +73,8 @@ squeue -u <your_username>
 ```
 _Runtime on test data: 34 mins._
 
+NOTE 02.12.2020: A new versjon of cutadapt (v. 3.0) was just released, which allows demultiplexing on multiple cores. It seems to scale linearly, so adding ```-j 8``` actually speeds up the process 8 times! The scripts should be updated to the new version, since this potentially can save many hours of the analysis.
+
 ### Script 2
 Removes fastq files with a low number of sequences (if any).
 
@@ -113,7 +115,7 @@ Generates a otutable in the DADA2_extracted_samples_no_chim folder.
 ### Script 6
 script_6_LULU.sh
 
-Change this to match the version you are using of R
+Change to match the version you are using of R
 ```
 module purge
 module load BLAST+/2.8.1-foss-2018b
@@ -123,10 +125,13 @@ makeblastdb -in OTU_centroids2 -parse_seqids -dbtype nucl
 blastn -db OTU_centroids2 -outfmt '6 qseqid sseqid pident' -out match_list.txt -qcov_hsp_perc 80 -perc_identity 84 -query OTU_centroids2
 
 # run the LULU curation
+s
 module purge
 module load R/3.5.1-intel-2018b ### Change this!
 R < LULU_curation_R_code.R --no-save ### Update the name of the R.script
 ```
 
 ### Script 7
-Ella used version BLAST+/2.10.1-iimpi-2020a for setting up her blastdatabase
+Ella used version BLAST+/2.10.1-iimpi-2020a for setting up the UNITE_public_04.02.2020.fasta database. This means that the script used for blasting should be updated accordingly.
+
+s
