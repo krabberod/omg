@@ -1,1 +1,0 @@
-/cluster/projects/nn9338k/Luis_metabarding_pipeline/example_files/batch_file.txt
